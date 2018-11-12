@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<script src="js/mail-generator.js"></script>
+		<link href="css/style.css" rel="stylesheet" media="screen">
+    <script>
+      window.onload = function(){
+
+      	// iterates through message objects in window.geemails array to display messages
+        for (let i = 0; i < window.geemails.length; i++) {
+
+			// creates an div to store a single message
+        	let msg = document.createElement('div');
+        	msg.id = `msg${i}`;
+        	msg.className = 'msg';
+        	msg.addEventListener('click', showBody);
+        	document.getElementById('inbox').appendChild(msg);
+
+        	// adds message values to the above div 
+        	let message = window.geemails[i];
+			for (let key in message) {
+        		let element = document.createElement('div');
+        		element.innerHTML = message[key];
+        		element.className = key;
+        		document.getElementById(`msg${i}`).appendChild(element);
+        	}
+		};
+
+		// Hides message bodies
+		let messageBodies = document.querySelectorAll('.body') 
+		for (let i = 0; i < messageBodies.length; i++) {
+			messageBodies[i].style.display = 'none';
+		} 
+
+		// Function to show and hide body when clicking a message
+		function showBody() {
+			let body = this.querySelectorAll('.body')[0]
+			if (body.style.display === 'none') {
+				body.style.display = 'block';
+			} else {
+				body.style.display = 'none';
+			}
+		}; 
+
+
+      };
+
+    </script>
+	</head>
+	<body>
+		<header id=header>
+			<h1>Gene-Mail</h1>
+		</header>
+		<div>
+			<h3> Inbox </h3>
+		</div>
+
+		<div class="inbox" id="inbox">
+		
+		</div>
+	</body>
+</html>
