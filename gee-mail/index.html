@@ -5,31 +5,24 @@
     <script>
       window.onload = function(){
 
-      	// iterates through message objects in window.geemails array to display messages
+      	// Iterates through message objects in window.geemails array to display messages
         for (let i = 0; i < window.geemails.length; i++) {
 
 			// creates an div to store a single message
         	let msg = document.createElement('div');
-        	msg.id = `msg${i}`;
         	msg.className = 'msg';
         	msg.addEventListener('click', showBody);
         	document.getElementById('inbox').appendChild(msg);
 
-        	// adds message values to the above div 
+        	// Adds message values to the above div 
         	let message = window.geemails[i];
 			for (let key in message) {
         		let element = document.createElement('div');
         		element.innerHTML = message[key];
         		element.className = key;
-        		document.getElementById(`msg${i}`).appendChild(element);
+        		msg.appendChild(element);
         	}
 		};
-
-		// Hides message bodies
-		let messageBodies = document.querySelectorAll('.body') 
-		for (let i = 0; i < messageBodies.length; i++) {
-			messageBodies[i].style.display = 'none';
-		} 
 
 		// Function to show and hide body when clicking a message
 		function showBody() {
@@ -41,17 +34,50 @@
 			}
 		}; 
 
+		// Function to generate and add new message
+		function newMessage() {
+
+			// Creates a div to store the new message
+			let msg = document.createElement('div');
+        	msg.className = 'msg';
+        	msg.addEventListener('click', showBody);
+        	document.getElementById('inbox').prepend(msg);
+
+        	// Adds the new message values to the div above
+			let newMSG = window.getNewMessage();
+			for (let key in newMSG) {
+				let element = document.createElement('div');
+				element.innerHTML = newMSG[key];
+				element.className = key;
+				msg.appendChild(element);
+			};
+
+			// Increments the number of messages and updates the inbox count
+			numMsg++;
+			inboxCount.innerHTML = `${numMsg}`;
+		};
+
+		// Runs newMessage function every 10 seconds
+		setInterval(newMessage, 10000);
+
+		// Adds inbox count
+		let numMsg = 10
+		let inboxCount = document.createElement('div')
+		inboxCount.innerHTML = `${numMsg}`;
+		inboxCount.id = 'count';
+		document.getElementById('topBar').appendChild(inboxCount);
+
 
       };
 
     </script>
 	</head>
 	<body>
-		<header id=header>
+		<header id= 'header'>
 			<h1>Gene-Mail</h1>
 		</header>
-		<div>
-			<h3> Inbox </h3>
+		<div id= 'topBar'>
+			<h3 id= 'heading'> Inbox </h3>
 		</div>
 
 		<div class="inbox" id="inbox">
