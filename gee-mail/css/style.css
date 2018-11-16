@@ -1,72 +1,107 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
 body {
-	background-image: url('https://s3-media2.fl.yelpcdn.com/bphoto/Q4NLortF1I43qizQaVcdIw/o.jpg');
+	background-image: url('https://images.unsplash.com/photo-1457195740896-7f345efef228?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f18c35d33a6282aaecfca8a8fc4265a6&auto=format&fit=crop&w=1950&q=80');
 	background-size: cover;
+	font-family: Arial, sans-serif;
+
+	display: grid;
+	grid-template-columns: 250px auto;
+	grid-template-rows: 70px 50px auto;
+	grid-template-areas: 'hd hd'
+						 'nav bar'
+						 'nav inbox'
 }
 
 #header {
-	color: white;
-	border: solid;
-
+	grid-area: hd;
+	border-bottom: 2px solid lightgray;
 }
 
 h1 {
-	margin: 20px;
-	text-align: center;
+	color: white;
+	font-size: 30pt;
+	padding: 10px;
+	margin-left: 60px;
+
 }
 
-#heading {
+#navBar {
+	grid-area: nav;
+}
+
+ul {
+	list-style: none;
+}
+
+li{
+	margin: 20px;
+	margin-left: 70px;
+	height: 40px;
+	font-weight: bold;
 	color: white;
 }
 
 #topBar {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+	grid-area: bar;
+
 }
 
-#count {
+h3 {
+	margin-top: 20px;
 	color: white;
-	margin: 10px;
+}
+
+#inbox { 
+	grid-area: inbox;
+	margin-right: 50px;
+	height: 700px;
+	overflow-y: auto;
+	min-width: 500px;
+
 }
 
 .msg {
-	background: rgb(255,255,255); /* Fallback Collor */
+	background: rgb(255,255,255); 
 	background: rgba(255,255,255,.85);
-	border-style: solid;
-	border-color: gray;
+	
+	border: 1px solid lightgray;
+	
 	display: grid;
-	grid-template-columns: 15% 50% 35%;
+	grid-template-columns: 25% 50% 25%;
 	grid-template-rows: 20% 80%;
 	grid-template-areas: 'sender subject date'
 						 'body body body';
-
 }
 
 .date {
 	grid-area: date;
-	margin: 10px;
-	align-self: bottom;
-	justify-self: end;
-
+	font-size: 10pt;
+	padding: 10px;
 }
 
 .subject {
 	grid-area: subject;
-	margin: 10px;
-	align-self: bottom;
+	font-weight: bold;
+	padding: 10px;
 }
 
 .sender {
 	grid-area: sender;
-	margin: 10px;
-	align-self: bottom;
+	font-weight: bold;
+	padding: 10px;
 }
 
 .body {
-	display: none;
 	grid-area: body;
-	margin: 10px;
-	align-self: center;
+	display: none;
+	padding: 10px;
+	align-self: end;
+	background-color: white;
+	border-top: 1px solid lightgray;
 }
 
 

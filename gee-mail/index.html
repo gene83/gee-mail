@@ -54,7 +54,7 @@
 
 			// Increments the number of messages and updates the inbox count
 			numMsg++;
-			inboxCount.innerHTML = `${numMsg}`;
+			inboxCount.innerHTML = `(${numMsg})`;
 		};
 
 		// Runs newMessage function every 10 seconds
@@ -62,11 +62,13 @@
 
 		// Adds inbox count
 		let numMsg = 10
-		let inboxCount = document.createElement('div')
-		inboxCount.innerHTML = `${numMsg}`;
+		let inboxCount = document.createElement('span')
+		inboxCount.innerHTML = `(${numMsg})`;
 		inboxCount.id = 'count';
-		document.getElementById('topBar').appendChild(inboxCount);
+		document.getElementById('navInb').appendChild(inboxCount);
 
+		// Pop-up effect for mouse-hover
+		
 
       };
 
@@ -74,12 +76,21 @@
 	</head>
 	<body>
 		<header id= 'header'>
-			<h1>Gene-Mail</h1>
+			<h1>GeneMail</h1>
 		</header>
-		<div id= 'topBar'>
-			<h3 id= 'heading'> Inbox </h3>
+		<div id = navBar>
+			<ul>
+				<li>Compose</li>
+				<li id=navInb>Inbox </li>
+				<li>Starred</li>
+				<li>Sent</li>
+				<li>Drafts</li>
+				<li>Notes</li>
+			</ul>
 		</div>
-
+		<div id= 'topBar'>
+			<h3>Primary Inbox</h3>
+		</div>
 		<div class="inbox" id="inbox">
 		
 		</div>
