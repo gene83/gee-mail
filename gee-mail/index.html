@@ -21,8 +21,14 @@
         		element.innerHTML = message[key];
         		element.className = key;
         		msg.appendChild(element);
+
+        		// initializes the body's display property to 'none'
+        		if(element.className === 'body') {
+        			element.style.display = 'none';
+        		}
         	}
 		};
+
 
 		// Function to show and hide body when clicking a message
 		function showBody() {
@@ -50,6 +56,11 @@
 				element.innerHTML = newMSG[key];
 				element.className = key;
 				msg.appendChild(element);
+
+				// initializes the body's display property to 'none'
+				if(element.className === 'body') {
+        			element.style.display = 'none';
+        		}
 			};
 
 			// Increments the number of messages and updates the inbox count
