@@ -1,0 +1,133 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: url('https://images.unsplash.com/photo-1457195740896-7f345efef228?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f18c35d33a6282aaecfca8a8fc4265a6&auto=format&fit=crop&w=1950&q=80');
+	background-size: cover;
+
+	font-family: Arial, sans-serif;
+
+	display: grid;
+	grid-template-columns: 250px auto;
+	grid-template-rows: 70px 50px auto;
+	grid-template-areas: 'hd hd'
+						 'nav bar'
+						 'nav inbox'
+}
+
+header {
+	grid-area: hd;
+	border-bottom: 2px solid lightgray;
+	display: flex;
+
+}
+
+h1 {
+	color: white;
+	font-size: 30pt;
+	padding: 10px;
+	margin-left: 20px;
+
+}
+
+#searchBar {
+	display: flex;
+	align-items: center;
+	margin: 12px 0px 12px 33px;
+	padding-right: 200px;
+	padding-left: 200px;
+	background: rgba(255,255,255,.3);
+	border: 1px solid white;
+	border-radius: 10px;
+}
+
+
+#navBar {
+	grid-area: nav;
+}
+
+ul {
+	list-style: none;
+	text-align: center;
+
+}
+
+li{
+	margin: 20px 70px;
+	height: 20px;
+	padding: 10px;
+
+	font-weight: bold;
+	color: white;
+	background: rgba(70,130,180,.3);
+	border: 1px solid white;
+	border-radius: 20px;
+	
+}
+
+#topBar {
+	grid-area: bar;
+	margin-right: 50px;
+	background: rgb(70,130,180);
+	text-align: center;
+}
+
+h3 {
+	color: white;
+	padding: 10px;
+}
+
+#inbox { 
+	grid-area: inbox;
+	margin-right: 50px;
+	height: 700px;
+	overflow-y: auto;
+	min-width: 500px;
+
+}
+
+.msg { 
+	background: rgba(255,255,255,.85);
+	border: 1px solid lightgray;
+	
+	display: grid;
+	grid-template-columns: 25% 50% 25%;
+	grid-template-rows: 20% 80%;
+	grid-template-areas: 'sender subject date'
+						 'body body body';
+}
+
+.date {
+	grid-area: date;
+	font-size: 10pt;
+	padding: 10px;
+	align-self: start;
+}
+
+.subject {
+	grid-area: subject;
+	font-weight: bold;
+	padding: 10px;
+	align-self: start;
+}
+
+.sender {
+	grid-area: sender;
+	font-weight: bold;
+	padding: 10px;
+	align-self: start;
+}
+
+.body {
+	grid-area: body;
+	padding: 10px;
+	align-self: end;
+	background: white;
+	border-top: 1px solid lightgray;
+}
+
+
+
+
